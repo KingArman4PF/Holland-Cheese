@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holland Cheese | Premium Artisan Cheese</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="Holland Cheese">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Grain overlay -->
+    <div class="grain-overlay"></div>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="nav-brand">
+            <span class="brand-icon">⬡</span>
+            <span class="brand-name">Holland Cheese</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="about.html">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-right">
+            <button class="order-now-btn" onclick="placeOrder()">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </button>
+        </div>
+    </nav>
+
+    <!-- Floating Cart Button -->
+    <div class="floating-cart-btn" onclick="toggleFloatingCart()">
+        <i class="fas fa-shopping-basket"></i>
+        <span class="cart-badge" id="cart-badge">0</span>
+    </div>
+
+    <!-- Hero -->
+    <section id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-label reveal">Artisan · Kampala · Est. 2012</p>
+            <img src="images/cheese-logo.png" alt="Holland Cheese Logo" class="hero-logo reveal-delay-1">
+            <h1 class="reveal-delay-2">The Art of<br><em>Exceptional Cheese</em></h1>
+            <p class="hero-sub reveal-delay-3">Handcrafted in Uganda. Inspired by Holland.<br>Add to cart and order instantly via WhatsApp.</p>
+            <div class="hero-cta reveal-delay-4">
+                <a href="#menu" class="cta-primary">Explore Our Selection</a>
+                <a href="about.html" class="cta-secondary">Our Story</a>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Marquee strip -->
+    <div class="marquee-strip">
+        <div class="marquee-track">
+            <span>Matured Cheddar</span><span class="dot">✦</span>
+            <span>Gouda</span><span class="dot">✦</span>
+            <span>Mozzarella</span><span class="dot">✦</span>
+            <span>Feta</span><span class="dot">✦</span>
+            <span>Parmesan</span><span class="dot">✦</span>
+            <span>Cream Cheese</span><span class="dot">✦</span>
+            <span>Paneer</span><span class="dot">✦</span>
+            <span>Cumin Gouda</span><span class="dot">✦</span>
+            <span>Piri Piri Gouda</span><span class="dot">✦</span>
+            <span>Matured Cheddar</span><span class="dot">✦</span>
+            <span>Gouda</span><span class="dot">✦</span>
+            <span>Mozzarella</span><span class="dot">✦</span>
+            <span>Feta</span><span class="dot">✦</span>
+            <span>Parmesan</span><span class="dot">✦</span>
+            <span>Cream Cheese</span><span class="dot">✦</span>
+            <span>Paneer</span><span class="dot">✦</span>
+        </div>
+    </div>
+
+    <!-- Menu -->
+    <section id="menu">
+        <div class="section-header">
+            <p class="section-label">Our Collection</p>
+            <h2>Cheese Selection</h2>
+            <p class="section-sub">From bold aged Cheddars to delicate Dutch Goudas — every variety is crafted for exceptional flavour.</p>
+        </div>
+        <div class="menu-grid">
+
+            <!-- Matured Cheddar -->
+            <div class="cheese-card reveal-card">
+                <div class="card-img-wrap">
+                    <img src="images/cheddar_block.jpg" alt="Matured Cheddar">
+                    <div class="card-img-overlay"></div>
+                    <span class="card-badge-tag">Aged</span>
+                </div>
+                <div class="card-body">
+                    <h3>Mild Cheddar</h3>
+                    <p>Sharp, rich, and perfect for bold flavour.</p>
+                    <div class="price-selector">
+                        <select class="prep-select" data-base="Matured Cheddar">
+                            <option value="">Choose preparation</option>
+                            <option value="Block">Block</option>
+                            <option value="Sliced">Sliced</option>
+                            <option value="Grated">Grated</option>
+                        </select>
+                        <select class="size-select hidden" data-item="Matured Cheddar">
+                            <option value="250g-12500">250g — UGX 12,500</option>
+                            <option value="500g-20500" selected>500g — UGX 20,500</option>
+                            <option value="1kg-39000">1kg — UGX 39,000</option>
+                        </select>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="changeCardQuantity(this, -1)">–</button>
+                        <span class="card-quantity">1</span>
+                        <button class="qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="add-btn" onclick="addSizedItem(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Cream Cheese -->
+            <div class="cheese-card reveal-card">
+                <div class="card-img-wrap">
+                    <img src="images/cream.jpg" alt="Cream Cheese">
+                    <div class="card-img-overlay"></div>
+                    <span class="card-badge-tag">Soft</span>
+                </div>
+                <div class="card-body">
+                    <h3>Cream Cheese</h3>
+                    <p>Soft, creamy, and spreadable — perfect for baking or toast.</p>
+                    <div class="price-selector">
+                        <select class="size-select" data-item="Cream Cheese">
+                            <option value="500g-15000" selected>500g — UGX 15,000</option>
+                        </select>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="changeCardQuantity(this, -1)">–</button>
+                        <span class="card-quantity">1</span>
+                        <button class="qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="add-btn" onclick="addSizedItem(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Natural Young Gouda -->
+            <div class="cheese-card reveal-card">
+                <div class="card-img-wrap">
+                    <img src="images/young_gouda.jpg" alt="Natural Young Gouda">
+                    <div class="card-img-overlay"></div>
+                    <span class="card-badge-tag">Dutch</span>
+                </div>
+                <div class="card-body">
+                    <h3>Natural Young Gouda</h3>
+                    <p>Mild, creamy Dutch classic — melts beautifully.</p>
+                    <div class="price-selector">
+                        <select class="prep-select" data-base="Natural Young Gouda">
+                            <option value="">Choose preparation</option>
+                            <option value="Block">Block</option>
+                            <option value="Sliced">Sliced</option>
+                            <option value="Grated">Grated</option>
+                        </select>
+                        <select class="size-select hidden" data-item="Natural Young Gouda">
+                            <option value="250g-12500">250g — UGX 12,500</option>
+                            <option value="500g-20500" selected>500g — UGX 20,500</option>
+                            <option value="1kg-35000">1kg — UGX 35,000</option>
+                        </select>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="changeCardQuantity(this, -1)">–</button>
+                        <span class="card-quantity">1</span>
+                        <button class="qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="add-btn" onclick="addSizedItem(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Feta Cheese -->
+            <div class="cheese-card reveal-card">
+                <div class="card-img-wrap">
+                    <img src="images/feta.jpg" alt="Feta Cheese">
+                    <div class="card-img-overlay"></div>
+                    <span class="card-badge-tag">Mediterranean</span>
+                </div>
+                <div class="card-body">
+                    <h3>Feta Cheese</h3>
+                    <p>Crumbly, tangy Greek-style feta — perfect for salads.</p>
+                    <div class="price-selector">
+                        <select class="size-select" data-item="Feta Cheese">
+                            <option value="500g-14000" selected>500g — UGX 14,000</option>
+                        </select>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="changeCardQuantity(this, -1)">–</button>
+                        <span class="card-quantity">1</span>
+                        <button class="qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="add-btn" onclick="addSizedItem(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Paneer Cheese -->
+            <div class="cheese-card reveal-card">
+                <div class="card-img-wrap">
+                    <img src="images/paneer.jpg" alt="Paneer Cheese">
+                    <div class="card-img-overlay"></div>
+                    <span class="card-badge-tag">Fresh</span>
+                </div>
+                <div class="card-body">
+                    <h3>Paneer Cheese</h3>
+                    <p>Fresh, firm Indian-style cheese — great for curries.</p>
+                    <div class="price-selector">
+                        <select class="size-select" data-item="Paneer Cheese">
+                            <option value="500g-12000" selected>500g — UGX 12,000</option>
+                        </select>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="changeCardQuantity(this, -1)">–</button>
+                        <span class="card-quantity">1</span>
+                        <button class="qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="add-btn" onclick="addSizedItem(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Mozzarella Cheese -->
+            <div class="cheese-card reveal-card">
+                <div class="card-img-wrap">
+                    <img src="images/moz full.jpg" alt="Mozzarella Cheese">
+                    <div class="card-img-overlay"></div>
+                    <span class="card-badge-tag">Italian</span>
+                </div>
+                <div class="card-body">
+                    <h3>Mozzarella Cheese</h3>
+                    <p>Soft, stretchy Italian classic — ideal for pizza.</p>
+                    <div class="price-selector">
+                        <select class="prep-select" data-base="Mozzarella">
+                            <option value="">Choose preparation</option>
+                            <option value="Block">Block</option>
+                            <option value="Grated">Grated</option>
+                        </select>
+                        <select class="size-select hidden" data-item="Mozzarella">
+                            <option value="500g-12000" selected>500g — UGX 12,000</option>
+                        </select>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="changeCardQuantity(this, -1)">–</button>
+                        <span class="card-quantity">1</span>
+                        <button class="qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="add-btn" onclick="addSizedItem(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Cumin Baby Gouda -->
+            <div class="cheese-card reveal-card">
+                <div class="card-img-wrap">
+                    <img src="images/cumin.jpg" alt="Cumin Baby Gouda">
+                    <div class="card-img-overlay"></div>
+                    <span class="card-badge-tag">Spiced</span>
+                </div>
+                <div class="card-body">
+                    <h3>Cumin Baby Gouda</h3>
+                    <p>Young Gouda with aromatic cumin seeds.</p>
+                    <div class="price-selector">
+                        <select class="size-select" data-item="Cumin Baby Gouda">
+                            <option value="500g-39000" selected>500g — UGX 39,000</option>
+                        </select>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="changeCardQuantity(this, -1)">–</button>
+                        <span class="card-quantity">1</span>
+                        <button class="qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="add-btn" onclick="addSizedItem(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Garden Herb Gouda -->
+            <div class="cheese-card reveal-card">
+                <div class="card-img-wrap">
+                    <img src="images/gartden.jpg" alt="Garden Herb Gouda">
+                    <div class="card-img-overlay"></div>
+                    <span class="card-badge-tag">Herbed</span>
+                </div>
+                <div class="card-body">
+                    <h3>Garden Herb Gouda</h3>
+                    <p>Fragrant Gouda infused with garden herbs.</p>
+                    <div class="price-selector">
+                        <select class="size-select" data-item="Garden Herb Gouda">
+                            <option value="500g-39000" selected>500g — UGX 39,000</option>
+                        </select>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="changeCardQuantity(this, -1)">–</button>
+                        <span class="card-quantity">1</span>
+                        <button class="qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="add-btn" onclick="addSizedItem(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Black Pepper Gouda -->
+            <div class="cheese-card reveal-card">
+                <div class="card-img-wrap">
+                    <img src="images/black.jpg" alt="Black Pepper Gouda">
+                    <div class="card-img-overlay"></div>
+                    <span class="card-badge-tag">Bold</span>
+                </div>
+                <div class="card-body">
+                    <h3>Black Pepper Gouda</h3>
+                    <p>Bold Gouda with cracked black pepper.</p>
+                    <div class="price-selector">
+                        <select class="size-select" data-item="Black Pepper Gouda">
+                            <option value="500g-39000" selected>500g — UGX 39,000</option>
+                        </select>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="changeCardQuantity(this, -1)">–</button>
+                        <span class="card-quantity">1</span>
+                        <button class="qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="add-btn" onclick="addSizedItem(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Piri Piri Gouda -->
+            <div class="cheese-card reveal-card">
+                <div class="card-img-wrap">
+                    <img src="images/pili.jpg" alt="Piri Piri Gouda">
+                    <div class="card-img-overlay"></div>
+                    <span class="card-badge-tag">Fiery</span>
+                </div>
+                <div class="card-body">
+                    <h3>Piri Piri Gouda</h3>
+                    <p>Spicy Gouda with fiery piri piri chilies.</p>
+                    <div class="price-selector">
+                        <select class="size-select" data-item="Piri Piri Gouda">
+                            <option value="500g-39000" selected>500g — UGX 39,000</option>
+                        </select>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="changeCardQuantity(this, -1)">–</button>
+                        <span class="card-quantity">1</span>
+                        <button class="qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="add-btn" onclick="addSizedItem(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Parmesan -->
+            <div class="cheese-card reveal-card">
+                <div class="card-img-wrap">
+                    <img src="images/permesan.jpg" alt="Parmesan">
+                    <div class="card-img-overlay"></div>
+                    <span class="card-badge-tag">Luxury</span>
+                </div>
+                <div class="card-body">
+                    <h3>Parmesan</h3>
+                    <p>Hard, nutty, and complex — the taste of wealth.</p>
+                    <div class="price-selector">
+                        <select class="prep-select" data-base="Parmesan">
+                            <option value="">Choose preparation</option>
+                            <option value="Block">Block</option>
+                            <option value="Grated">Grated</option>
+                        </select>
+                        <select class="size-select hidden" data-item="Parmesan">
+                            <option value="500g-39000" selected>500g — UGX 39,000</option>
+                        </select>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="changeCardQuantity(this, -1)">–</button>
+                        <span class="card-quantity">1</span>
+                        <button class="qty-btn" onclick="changeCardQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="add-btn" onclick="addSizedItem(this)">Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="section-header">
+            <p class="section-label">Find Us</p>
+            <h2>Get in Touch</h2>
+            <p class="section-sub">We'd love to hear from you — whether it's an order or a question about cheese.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div>
+                        <strong>WhatsApp</strong>
+                        <span>Message us directly</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <strong>Phone</strong>
+                        <span>+256 752 628 397</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <strong>Email</strong>
+                        <span>cooperandcompanyinvltd@gmail.com</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <strong>Location</strong>
+                        <span>Cooper House, Kamwokya, Kampala</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-truck"></i></div>
+                    <div>
+                        <strong>Delivery</strong>
+                        <span>Service vehicle delivery available</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17367.873172495667!2d32.577766551867754!3d0.3418737571204374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbbd6ead02a71%3A0x3e5c3b2555138264!2sCooper%20House!5e1!3m2!1sen!2sug!4v1766995607980!5m2!1sen!2sug" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="brand-icon">⬡</span>
+                <span>Holland Cheese</span>
+            </div>
+            <p>Handcrafted in Uganda. Inspired by Holland. Est. 2012.</p>
+            <p class="footer-copy">© 2025 Holland Cheese · Cooper House, Kamwokya, Kampala</p>
+        </div>
+    </footer>
+
+    <!-- Floating Cart Panel -->
+    <div id="floating-cart">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" onclick="toggleFloatingCart()">✕</button>
+        </div>
+        <ul id="cart-items"></ul>
+        <button id="order-btn" onclick="placeOrder()">
+            <i class="fab fa-whatsapp"></i> Place Order via WhatsApp
+        </button>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
